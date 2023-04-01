@@ -1,0 +1,28 @@
+.booking-card {
+    width: 500px;
+    height: 400px;
+    position: relative;
+  }
+  
+  .booking-card-content {
+    margin-bottom: 40px;
+  }
+  
+  .booking-card-sale {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f6a20c;
+    color: #fff;
+    border-radius: 0 0 0 25px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+  }
+  
+  .booking-card-button {
+    color: #fff;
+    background-color: #f6a20c;
+    border-radius: 25px;
+    width: 100%;
+  }
+  
