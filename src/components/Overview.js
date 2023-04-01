@@ -11,34 +11,22 @@ const Overview = () => {
     const theme = useTheme();
     const { primaryColor, subPrimaryColor, fullContent } = constants;
 
-    const hasMoreContent = fullContent.split('\n').length > MAX_CONTENT_LENGTH;
-
-    const [showMore, setShowMore] = useState(false);
-
+    const [isReadMoreShown, setReadMoreShown] = useState(false)
+    const toggleBtn = () => {
+        setReadMoreShown(prevState => !prevState)
+    }
     return (
-        <Box style={{width: '20vh', height: '200px', width:'600px'}}>
+        <Box style={{width:'600px'}}>
             <Box style={{ display: 'flex', flexDirection: 'row' ,alignItems:'center' }}>
                 <BoxColor />
                 <Typography variant='h6'>Overview</Typography>
             </Box>
-            <Typography
-                style={{
-                    color: "grey",
-                    marginLeft: "20px",
-                    height: "calc(1.5em * 4)", // set height to 4 rows of text
-                    overflow: "hidden",
-                    display: "-webkit-box",
-                    "-webkit-line-clamp": 4, // limit to 4 lines of text
-                    "-webkit-box-orient": "vertical",
-                }}
-            >
-                {showMore ? fullContent : fullContent.split('\n').slice(0, MAX_CONTENT_LENGTH).join('\n')}
+            <Typography style={{marginLeft:'15px'}}>
+                {isReadMoreShown ? fullContent : (fullContent.substring(0,300) + " ...")}
             </Typography>
-            {hasMoreContent && !showMore && (
-                <Button onClick={() => setShowMore(true)} style={{ color: subPrimaryColor, marginLeft: '10px' }}>
-                    Read More
-                </Button>
-            )}
+            <Button onClick={toggleBtn} style={{ color: subPrimaryColor, marginLeft: '10px' }}>
+                Read More
+            </Button>
         </Box>
     )
 };

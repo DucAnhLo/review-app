@@ -23,7 +23,7 @@ function ReviewAndRatings() {
                 <BoxColor />
                 <Typography variant='h6'>Ratings and Review</Typography>
             </Box>
-            <Typography variant='subtitle1' className='sub-title'>Sumptuous Villa</Typography>
+            <Typography variant='subtitle1' className='sub-title' style={{marginLeft:'15px'}}>Sumptuous Villa</Typography>
             
             <Box className='rating'>
                 <Box>
