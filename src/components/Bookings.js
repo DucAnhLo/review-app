@@ -41,7 +41,7 @@ function Booking() {
           </Box>
         </CardContent>
         <CardActions>
-          <Button onClick={notify} className="booking-card-button" variant='contained' size="large">Book Now</Button>
+          <Button onClick={notify} className="booking-card-button" variant='contained' size="large" style={{backgroundColor:primaryColor, color:'white'}}>Book Now</Button>
         </CardActions>
       </Card>
       <ToastContainer position="top-center" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />

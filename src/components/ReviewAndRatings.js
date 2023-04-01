@@ -27,7 +27,7 @@ function ReviewAndRatings() {
             
             <Box className='rating'>
                 <Box>
-                    <Typography className='rating-value'>
+                    <Typography style={{fontSize:'50px', color:'black'}}>
                         {(((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings).toFixed(1)}
                     </Typography>
                     <Rating 
