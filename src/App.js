@@ -34,12 +34,11 @@ function App() {
           <Divider style={{ margin: '16px 0', borderTop: '1px solid'}} />
           <ReviewAndRatings />
         </Box>
-        <Box style={{ marginLeft: bookingMargin }}>
+        <Box style={{ marginLeft: bookingMargin , marginTop:'5rem'}}>
           <Booking />
         </Box>
       </Box>
     </ThemeProvider>
-  
   );
 }
 
