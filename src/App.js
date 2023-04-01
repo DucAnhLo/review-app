@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { Button, Box } from '@material-ui/core';
+import ReviewAndRatings from './components/ReviewAndRatings';
+import Overview from './components/Overview';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import Booking from './components/Bookings';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#f6a20c',
+    },
+    subPrimary: {
+      main: '#004058',
+    },
+  },
+});
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box className='wrapper'>
+        <Box className='vertial'>
+          <Overview />
+          <ReviewAndRatings />
+        </Box>
+        <Booking />
+      </Box>
+    </ThemeProvider>
+  
   );
 }
 
