@@ -4,17 +4,15 @@ import { useTheme } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import BoxColor from './BoxColor';
 import { Star } from '@material-ui/icons';
+import constants from '../constants';
 
 function ReviewAndRatings() {
   
     const theme = useTheme();
 
-    const primaryColor = theme.palette.primary.main;
-    const subPrimaryColor = theme.palette.subPrimary.main;
+    const { primaryColor, subPrimaryColor, star} = constants;
 
-    const star = [5,4,3,2,1]
-
-    const [ratings, setRatings] = useState([30, 10, 0, 0, 10]);
+    const [ratings, setRatings] = useState([11, 14, 0, 0, 10]);
 
     const totalRatings = ratings.reduce((acc, val) => acc + val, 0);
 
@@ -29,11 +27,12 @@ function ReviewAndRatings() {
             <Box style={{ color: 'grey', marginLeft:'20px', marginTop:'30px', display:'flex', flexDirection:'row', width:'200px'}}>
                 <Box>
                     <Typography style={{ color: 'black', fontSize:'50px'}}>
-                        {((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings}
+                        {(((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings).toFixed(1)}
                     </Typography>
                     <Rating 
                         name="read-only" 
-                        value={((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings} 
+                        value={((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings}
+                        precision={0.1}
                         readOnly
                     />
                     <Typography style={{ color: 'grey', fontSize:'20px'}}>{totalRatings} ratings</Typography>

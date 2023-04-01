@@ -35,7 +35,7 @@ function App() {
           <ReviewAndRatings />
         </Box>
         <Box style={{ marginLeft: bookingMargin , marginTop:'5rem'}}>
-          <Booking />
+          <Booking className="booking" />
         </Box>
       </Box>
     </ThemeProvider>

@@ -3,14 +3,14 @@ import { useTheme } from '@material-ui/core/styles';
 import { Box, Typography, Button, Card, CardContent, CardActions } from '@material-ui/core';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import constants from '../constants';
 
 function Booking() {
 
     const theme = useTheme();
 
-    const primaryColor = theme.palette.primary.main;
-    const subPrimaryColor = theme.palette.subPrimary.main;
-    const notify = () => toast("Success!");
+    const notify = () => toast('Success!');
+    const { primaryColor, subPrimaryColor, salePrice, normalPrice } = constants;
 
   return (
     <Box style={{height: '200px', width:'600px' }}>
@@ -28,10 +28,10 @@ function Booking() {
                 </Typography>
                 <Box style={{display:'flex',justifyContent:'space-between'}}>
                     <Typography variant="h4">
-                        4.500.104 vnd
+                        {salePrice.toLocaleString()} vnd
                     </Typography>
                     <Typography variant="h6" style={{color:'grey'}}>
-                        Was 5.100.500 vnd
+                        Was {normalPrice.toLocaleString()} vnd
                     </Typography>
                 </Box>
             </Box>
