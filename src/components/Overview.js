@@ -4,6 +4,8 @@ import { Box, Typography, Button, Dialog, DialogTitle, DialogActions,DialogConte
 import BoxColor from './BoxColor';
 
 const Overview = () => {
+
+    
   
     const theme = useTheme();
     const[open, setOpen]= useState(false);
@@ -34,10 +36,10 @@ const Overview = () => {
     };
    
     return (
-        <Box style={{width: '20vh', height: '200px', width:'600px',fontFamily: 'Poppins, sans-serif'}}>
+        <Box style={{width: '20vh', height: '200px', width:'600px'}}>
             <Box style={{ display: 'flex', flexDirection: 'row' ,alignItems:'center' }}>
                 <BoxColor />
-                <Typography variant='h4'>Overview</Typography>
+                <Typography variant='h6'>Overview</Typography>
             </Box>
             <Typography style={{ color: 'grey', marginLeft:'20px' }}>{content}</Typography>
             <Button onClick={handleOpen} style={{ color:subPrimaryColor, marginLeft:'10px' }}>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTheme } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
-import BoxColor from './BoxColor';
+import { Box, Typography, Button } from '@material-ui/core';
 
 function Booking() {
 
@@ -11,11 +10,8 @@ function Booking() {
     const subPrimaryColor = theme.palette.subPrimary.main;
 
   return (
-    <Box style={{ backgroundColor: primaryColor, width: '20vh', height: '1000px', width:'300px' }}>
-        <BoxColor />
-        <div>
-            <h1>Booking</h1>
-        </div>
+    <Box style={{ backgroundColor: primaryColor, width: '20vh', height: '500px', width:'600px' }}>
+  
     </Box>
   )
 }

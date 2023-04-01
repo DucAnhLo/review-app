@@ -1,9 +1,11 @@
 import './App.css';
-import { Button, Box } from '@material-ui/core';
+import { useState } from 'react';
+import { Button, Box, Divider } from '@material-ui/core';
 import ReviewAndRatings from './components/ReviewAndRatings';
 import Overview from './components/Overview';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import Booking from './components/Bookings';
+
 
 const theme = createTheme({
   palette: {
@@ -22,14 +24,19 @@ const theme = createTheme({
 
 
 function App() {
+  const [bookingMargin, setBookingMargin] = useState('30px');
+
   return (
     <ThemeProvider theme={theme}>
       <Box className='wrapper'>
         <Box className='vertial'>
           <Overview />
+          <Divider style={{ margin: '16px 0', borderTop: '1px solid'}} />
           <ReviewAndRatings />
         </Box>
-        <Booking />
+        <Box style={{ marginLeft: bookingMargin }}>
+          <Booking />
+        </Box>
       </Box>
     </ThemeProvider>
   

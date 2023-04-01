@@ -1,89 +1,65 @@
 import { useState } from 'react';
-import { Box, Typography, TextField, Button, Divider } from '@material-ui/core';
+import { Box, Typography, LinearProgress } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
+import BoxColor from './BoxColor';
+import { Star } from '@material-ui/icons';
 
 function ReviewAndRatings() {
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
-  const [reviews, setReviews] = useState([
-    { stars: 5, count: 10 },
-    { stars: 4, count: 5 },
-    { stars: 3, count: 3 },
-    { stars: 2, count: 1 },
-    { stars: 1, count: 0 },
-  ]);
+  
+    const theme = useTheme();
 
-  const handleRatingChange = (event, newValue) => {
-    setRating(newValue);
-  };
+    const primaryColor = theme.palette.primary.main;
+    const subPrimaryColor = theme.palette.subPrimary.main;
 
-  const handleCommentChange = (event) => {
-    setComment(event.target.value);
-  };
+    const star = [5,4,3,2,1]
 
-  const handleSubmit = () => {
-    // Do something with the rating and comment data
-    console.log(`Rating: ${rating}, Comment: ${comment}`);
-    setRating(0);
-    setComment('');
-    const updatedReviews = [...reviews];
-    updatedReviews[rating - 1].count++;
-    setReviews(updatedReviews);
-  };
+    const [ratings, setRatings] = useState([30, 10, 0, 0, 10]);
 
-  const overallRating = reviews.reduce(
-    (total, review) => total + review.stars * review.count,
-    0
-  ) / reviews.reduce((total, review) => total + review.count, 0);
+    const totalRatings = ratings.reduce((acc, val) => acc + val, 0);
 
-  return (
-    <Box display="flex" flexDirection="column" alignItems="center" p={3}>
-      <Typography variant="h5" gutterBottom>
-        Leave a review
-      </Typography>
-      <Rating name="rating" value={rating} onChange={handleRatingChange} />
-      <TextField
-        label="Comment"
-        variant="outlined"
-        multiline
-        rows={4}
-        value={comment}
-        onChange={handleCommentChange}
-        fullWidth
-        margin="normal"
-      />
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
-        Submit
-      </Button>
-      <Divider variant="middle" style={{ margin: '24px 0' }} />
-      <Box display="flex" justifyContent="space-between" width="100%">
-        {reviews.map((review) => (
-          <Box key={review.stars}>
-            <Typography variant="h6" component="span">
-              {review.stars} stars
-            </Typography>
-            <Box display="flex" alignItems="center">
-              <Rating name="read-only" value={review.stars} readOnly size="small" />
-              <Typography variant="subtitle1" component="span" style={{ marginLeft: 8 }}>
-                {review.count}
-              </Typography>
+    return (
+        <Box style={{height: '400px', width:'600px' }}>
+            <Box style={{ display: 'flex', flexDirection: 'row' ,alignItems:'center' }}>
+                <BoxColor />
+                <Typography variant='h6'>Ratings and Review</Typography>
             </Box>
-          </Box>
-        ))}
-        <Box>
-          <Typography variant="h6" component="span">
-            Overall
-          </Typography>
-          <Box display="flex" alignItems="center">
-            <Rating name="read-only" value={overallRating} readOnly size="small" />
-            <Typography variant="subtitle1" component="span" style={{ marginLeft: 8 }}>
-              {overallRating.toFixed(1)}
-            </Typography>
-          </Box>
+            <Typography variant='subtitle1' style={{ color: 'grey', marginLeft:'20px' }}>Sumptuous Villa</Typography>
+            
+            <Box style={{ color: 'grey', marginLeft:'20px', marginTop:'30px', display:'flex', flexDirection:'row', width:'200px'}}>
+                <Box>
+                    <Typography style={{ color: 'black', fontSize:'50px'}}>
+                        {((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings}
+                    </Typography>
+                    <Rating 
+                        name="read-only" 
+                        value={((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings} 
+                        readOnly
+                    />
+                    <Typography style={{ color: 'grey', fontSize:'20px'}}>{totalRatings} ratings</Typography>
+                </Box>
+
+                <Box style={{ marginLeft: '20px'}}>
+                    {star.map((rating, index) => (
+                        <Box key={index} style={{ display:'flex', flexDirection:'row'}}>
+                             <Box width="20px" mr={1}>
+                                <Star style={{color: primaryColor}} />
+                            </Box>
+                            <Box width="20px" mr={1}>
+                            <Typography variant="subtitle1">{star[index]}</Typography>
+                            </Box>
+                            <Box style={{width:'300px', margin:'0.65rem 0.5rem'}}>
+                                <LinearProgress variant="determinate" value={(ratings[index]/totalRatings)*100} />
+                            </Box>
+                            <Box ml={1}>
+                                <Typography variant="subtitle1">{ratings[index]}</Typography>
+                            </Box>
+                        </Box>
+                    ))}
+                </Box>
+            </Box>
         </Box>
-      </Box>
-    </Box>
-  );
+    );
 }
 
 export default ReviewAndRatings;
