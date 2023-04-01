@@ -13,6 +13,10 @@ const theme = createTheme({
     subPrimary: {
       main: '#004058',
     },
+    
+  },
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
   },
 });
 

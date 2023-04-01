@@ -34,7 +34,7 @@ const Overview = () => {
     };
    
     return (
-        <Box style={{width: '20vh', height: '200px', width:'600px' }}>
+        <Box style={{width: '20vh', height: '200px', width:'600px',fontFamily: 'Poppins, sans-serif'}}>
             <Box style={{ display: 'flex', flexDirection: 'row' ,alignItems:'center' }}>
                 <BoxColor />
                 <Typography variant='h4'>Overview</Typography>

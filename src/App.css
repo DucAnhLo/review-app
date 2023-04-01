@@ -1,5 +1,19 @@
 .wrapper {
+    margin-top: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+  }
+  
