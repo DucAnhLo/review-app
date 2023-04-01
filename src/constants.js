@@ -15,7 +15,6 @@ const constants = {
         The suites also feature a Jacuzzi tub, perfect for relaxing after a long day of sightseeing. At our hotel, we believe that your comfort is our top priority. 
         Our rooms are designed to provide a sanctuary of comfort and relaxation, ensuring that your stay is an unforgettable experience.`,
     
-
   };
   
   export default constants;

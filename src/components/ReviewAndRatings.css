@@ -1,0 +1,59 @@
+.container {
+    height: 400px;
+    width: 600px;
+  }
+  
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .sub-title {
+    color: grey;
+    margin-left: 20px;
+  }
+  
+  .rating {
+    color: grey;
+    margin-left: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+  }
+  
+  .rating-value {
+    color: black;
+    font-size: 50px;
+  }
+  
+  .rating-stars {
+    color: grey;
+    font-size: 20px;
+  }
+  
+  .star-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .star {
+    width: 20px;
+    margin-right: 1rem;
+  }
+  
+  .star-title {
+    width: 20px;
+    margin-right: 1rem;
+  }
+  
+  .progress-bar {
+    width: 300px;
+    margin: 0.65rem 0.5rem;
+  }
+  
+  .rating-count {
+    margin-left: 1rem;
+  }
+  

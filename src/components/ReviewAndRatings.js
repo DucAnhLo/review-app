@@ -5,6 +5,7 @@ import Rating from '@material-ui/lab/Rating';
 import BoxColor from './BoxColor';
 import { Star } from '@material-ui/icons';
 import constants from '../constants';
+import './ReviewAndRatings.css';
 
 function ReviewAndRatings() {
   
@@ -17,16 +18,16 @@ function ReviewAndRatings() {
     const totalRatings = ratings.reduce((acc, val) => acc + val, 0);
 
     return (
-        <Box style={{height: '400px', width:'600px' }}>
-            <Box style={{ display: 'flex', flexDirection: 'row' ,alignItems:'center' }}>
+        <Box className='container'>
+            <Box className='title' >
                 <BoxColor />
                 <Typography variant='h6'>Ratings and Review</Typography>
             </Box>
-            <Typography variant='subtitle1' style={{ color: 'grey', marginLeft:'20px' }}>Sumptuous Villa</Typography>
+            <Typography variant='subtitle1' className='sub-title'>Sumptuous Villa</Typography>
             
-            <Box style={{ color: 'grey', marginLeft:'20px', marginTop:'30px', display:'flex', flexDirection:'row', width:'200px'}}>
+            <Box className='rating'>
                 <Box>
-                    <Typography style={{ color: 'black', fontSize:'50px'}}>
+                    <Typography className='rating-value'>
                         {(((ratings[0]*5)+(ratings[1]*4)+(ratings[2]*3)+(ratings[3]*2)+(ratings[4]*1))/totalRatings).toFixed(1)}
                     </Typography>
                     <Rating 
@@ -35,22 +36,22 @@ function ReviewAndRatings() {
                         precision={0.1}
                         readOnly
                     />
-                    <Typography style={{ color: 'grey', fontSize:'20px'}}>{totalRatings} ratings</Typography>
+                    <Typography className='rating-stars'>{totalRatings} ratings</Typography>
                 </Box>
 
                 <Box style={{ marginLeft: '20px'}}>
                     {star.map((rating, index) => (
-                        <Box key={index} style={{ display:'flex', flexDirection:'row'}}>
-                             <Box width="20px" mr={1}>
+                        <Box key={index} className="star-container">
+                             <Box className='star'>
                                 <Star style={{color: primaryColor}} />
                             </Box>
-                            <Box width="20px" mr={1}>
+                            <Box className='star-title'>
                             <Typography variant="subtitle1">{star[index]}</Typography>
                             </Box>
-                            <Box style={{width:'300px', margin:'0.65rem 0.5rem'}}>
+                            <Box className='progress-bar'>
                                 <LinearProgress variant="determinate" value={(ratings[index]/totalRatings)*100} />
                             </Box>
-                            <Box ml={1}>
+                            <Box className='rating-count'>
                                 <Typography variant="subtitle1">{ratings[index]}</Typography>
                             </Box>
                         </Box>
